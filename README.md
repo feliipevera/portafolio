@@ -19,13 +19,12 @@ portafolio/
 
 
 ## Publicación
-Sitio publicado en GitHub Pages: https://TU-USUARIO.github.io/portafolio/
-
+Sitio publicado en GitHub Pages: https://feliipevera.github.io/portafolio/
 ## Contacto
 felipe-370@hotmail.com
 
-## estado
-estudiante en formacion con html, j.s ,base de datos y phyton
+## Estado
+Estudiante en formacion con html, java striv ,base de datos y phyton
 
 
-## se aplico tailwind
+## Se aplico tailwind

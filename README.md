@@ -9,21 +9,23 @@ Portafolio personal de un tecnólogo en Mantenimiento de Automotores (SENA) y de
 - GitHub Pages
 
 ## Estructura
-```
+
 portafolio/
 ├── index.html
 ├── README.md
 └── img/
-    └── imagen1.jpg
-```
+    └── imagen1.jpn
 
-## Cómo verlo en local
-1. Clona el repositorio.
-2. Abre la carpeta en VS Code.
-3. Clic derecho en `index.html` → **Open with Live Server**.
+
 
 ## Publicación
 Sitio publicado en GitHub Pages: https://TU-USUARIO.github.io/portafolio/
 
 ## Contacto
 felipe-370@hotmail.com
+
+## estado
+estudiante en formacion con html, j.s ,base de datos y phyton
+
+
+## se aplico tailwind

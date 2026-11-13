@@ -1,170 +1,407 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portafolio de Duban Felipe Sarmiento Vera, tecnólogo en mantenimiento de automotores (SENA) y desarrollador web en formación en Medellín.">
+  <meta name="description" content="Portafolio de Duban Felipe Sarmiento Vera, desarrollador web en formación en Medellín. Ruta de aprendizaje: JavaScript, bases de datos, Python y HTML.">
   <meta name="author" content="Duban Felipe Sarmiento Vera">
   <title>Duban Felipe Sarmiento Vera | Portafolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>html{scroll-behavior:smooth}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}</style>
-</head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
-  <header class="sticky top-0 z-10 bg-blue-950 text-white shadow">
-    <nav class="mx-auto flex max-w-5xl items-center justify-between px-5 py-3" aria-label="Principal">
-      <a href="#inicio" class="font-bold tracking-tight">Duban Sarmiento</a>
-      <ul class="flex gap-4 text-sm sm:gap-6">
-        <li><a class="hover:text-sky-300 focus:outline focus:outline-2 focus:outline-sky-300" href="#sobre-mi">Sobre mí</a></li>
-        <li><a class="hover:text-sky-300 focus:outline focus:outline-2 focus:outline-sky-300" href="#habilidades">Habilidades</a></li>
-        <li><a class="hover:text-sky-300 focus:outline focus:outline-2 focus:outline-sky-300" href="#proyectos">Proyectos</a></li>
-        <li><a class="hover:text-sky-300 focus:outline focus:outline-2 focus:outline-sky-300" href="#contacto">Contacto</a></li>
+  <!-- Tailwind por CDN (no requiere instalación) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Configuración: debe ir DESPUÉS del script del CDN -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fuentes de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-slate-50 font-sans text-slate-800 antialiased">
+
+  <!-- Enlace para saltar al contenido (accesibilidad por teclado) -->
+  <a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-sky-400 focus:px-4 focus:py-2 focus:font-semibold focus:text-slate-950">Saltar al contenido</a>
+
+  <!-- ENCABEZADO -->
+  <header class="sticky top-0 z-40 border-b border-white/10 bg-slate-950/90 text-white backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3" aria-label="Principal">
+      <a href="#inicio" class="flex items-center gap-2 font-bold tracking-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300">
+        <span class="rounded bg-sky-400 px-2 py-0.5 font-mono text-sm font-bold text-slate-950">&lt;/&gt;</span>
+        Duban Sarmiento
+      </a>
+
+      <!-- Botón del menú en celular -->
+      <button id="btn-menu" type="button" aria-expanded="false" aria-controls="menu"
+              class="rounded p-2 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 md:hidden">
+        <span class="sr-only">Abrir menú</span>
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+
+      <ul id="menu" class="absolute left-0 top-full hidden w-full flex-col gap-1 border-b border-white/10 bg-slate-950 px-5 py-4 text-sm md:static md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0">
+        <li><a class="block rounded py-2 hover:text-sky-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 md:py-0" href="#sobre-mi">Sobre mí</a></li>
+        <li><a class="block rounded py-2 hover:text-sky-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 md:py-0" href="#ruta">Ruta de aprendizaje</a></li>
+        <li><a class="block rounded py-2 hover:text-sky-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 md:py-0" href="#bitacora">Bitácora</a></li>
+        <li><a class="block rounded py-2 hover:text-sky-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 md:py-0" href="#proyectos">Proyectos</a></li>
+        <li><a class="mt-2 block rounded bg-sky-400 px-4 py-2 text-center font-semibold text-slate-950 hover:bg-sky-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white md:mt-0" href="#contacto">Contacto</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section id="inicio" class="bg-gradient-to-br from-blue-950 via-blue-900 to-blue-700 text-white">
-      <div class="mx-auto flex max-w-5xl flex-col-reverse items-center gap-8 px-5 py-16 md:flex-row md:justify-between">
-        <div class="max-w-xl text-center md:text-left">
-          <h1 class="text-4xl font-extrabold leading-tight sm:text-5xl">Duban Felipe Sarmiento Vera</h1>
-          <p class="mt-4 text-lg text-blue-100">Tecnólogo en Mantenimiento de Automotores y desarrollador web en formación. Llevo la lógica de diagnóstico del taller al código: observar, aislar la falla y corregir.</p>
-          <p class="mt-2 text-sm text-blue-200">Medellín, Antioquia, Colombia</p>
-          <div class="mt-6 flex flex-wrap justify-center gap-3 md:justify-start">
-            <a href="#contacto" class="rounded bg-sky-400 px-5 py-2.5 font-semibold text-blue-950 hover:bg-sky-300 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-white">Contáctame</a>
-            <a href="#proyectos" class="rounded border border-white/60 px-5 py-2.5 font-semibold hover:bg-white/10 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-white">Ver proyectos</a>
+  <main id="contenido">
+
+    <!-- INICIO -->
+    <section id="inicio" class="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-blue-800 text-white">
+      <div class="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/10 blur-3xl" aria-hidden="true"></div>
+      <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:py-24">
+
+        <div class="text-center md:text-left">
+          <p class="inline-block rounded-full border border-sky-300/40 bg-sky-300/10 px-3 py-1 font-mono text-xs text-sky-200">Aprendiendo en público · Medellín, Colombia</p>
+          <h1 class="mt-4 text-4xl font-extrabold leading-tight sm:text-5xl">
+            Hola, soy <span class="text-sky-300">Duban Felipe</span> Sarmiento Vera
+          </h1>
+          <p class="mt-4 text-lg leading-relaxed text-blue-100">
+            Desarrollador web en formación. Estoy aprendiendo <strong>JavaScript</strong>, <strong>bases de datos</strong>, <strong>Python</strong> y <strong>HTML</strong>, y cada reto lo documento en GitHub.
+          </p>
+          <div class="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
+            <a href="#proyectos" class="rounded-lg bg-sky-400 px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-sky-400/20 transition hover:-translate-y-0.5 hover:bg-sky-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-950">Ver proyectos</a>
+            <a href="https://github.com/feliipevera" target="_blank" rel="noopener" class="rounded-lg border border-white/40 px-6 py-3 font-semibold transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white">Mi GitHub ↗</a>
           </div>
         </div>
-        <img src="img/imagen1.jpg" alt="Fotografía de perfil de Duban Felipe Sarmiento Vera" width="240" height="240"
-             class="h-48 w-48 rounded-full border-4 border-sky-300 object-cover shadow-xl md:h-60 md:w-60">
+
+        <!-- Foto + tarjeta de código -->
+        <div class="flex flex-col items-center gap-6">
+          <img src="img/imagen1.png" alt="Fotografía de perfil de Duban Felipe Sarmiento Vera" width="200" height="200"
+               class="h-40 w-40 rounded-full border-4 border-sky-300 object-cover shadow-xl md:h-48 md:w-48">
+          <div class="w-full max-w-md overflow-hidden rounded-xl border border-white/10 bg-slate-900/80 shadow-2xl">
+            <div class="flex items-center gap-2 border-b border-white/10 px-4 py-2" aria-hidden="true">
+              <span class="h-3 w-3 rounded-full bg-red-400"></span>
+              <span class="h-3 w-3 rounded-full bg-yellow-400"></span>
+              <span class="h-3 w-3 rounded-full bg-green-400"></span>
+              <span class="ml-2 font-mono text-xs text-slate-400">duban.js</span>
+            </div>
+            <pre class="overflow-x-auto p-4 font-mono text-xs leading-6 sm:text-sm"><code><span class="text-sky-300">const</span> <span class="text-white">duban</span> = {
+  <span class="text-slate-300">rol</span>: <span class="text-emerald-300">"Dev web en formación"</span>,
+  <span class="text-slate-300">ruta</span>: [<span class="text-emerald-300">"JavaScript"</span>, <span class="text-emerald-300">"SQL"</span>,
+         <span class="text-emerald-300">"Python"</span>, <span class="text-emerald-300">"HTML"</span>],
+  <span class="text-slate-300">github</span>: <span class="text-emerald-300">"feliipevera"</span>,
+  <span class="text-slate-300">siguientePaso</span>: <span class="text-emerald-300">"seguir practicando"</span>
+};</code></pre>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="sobre-mi" class="mx-auto max-w-3xl px-5 py-14">
-      <h2 class="text-2xl font-bold text-blue-900">Sobre mí</h2>
-      <p class="mt-4 leading-relaxed">Soy <strong>tecnólogo en Mantenimiento de Automotores</strong>, egresado del <strong>SENA</strong>, con formación en diagnóstico de sistemas mecánicos, eléctricos y electrónicos del vehículo.</p>
-      <p class="mt-3 leading-relaxed">Actualmente me formo como <em>desarrollador de software</em>, con enfoque en <strong>HTML5 semántico</strong>, <strong>Tailwind CSS</strong> y control de versiones con <strong>Git y GitHub</strong>. Mi objetivo es combinar el pensamiento sistemático del diagnóstico automotriz con el desarrollo de soluciones web accesibles y responsive.</p>
+    <!-- DATOS RÁPIDOS -->
+    <section aria-label="Datos rápidos" class="border-b border-slate-200 bg-white">
+      <dl class="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-5 py-8 text-center md:grid-cols-4">
+        <div><dt class="text-sm text-slate-500">Rutas de aprendizaje</dt><dd class="text-3xl font-extrabold text-blue-900">4</dd></div>
+        <div><dt class="text-sm text-slate-500">Proyecto principal</dt><dd class="text-3xl font-extrabold text-blue-900">Rueda Libre</dd></div>
+        <div><dt class="text-sm text-slate-500">Control de versiones</dt><dd class="text-3xl font-extrabold text-blue-900">Git + GitHub</dd></div>
+        <div><dt class="text-sm text-slate-500">Editor y pruebas</dt><dd class="text-3xl font-extrabold text-blue-900">VS Code + DevTools</dd></div>
+      </dl>
+    </section>
 
-      <h3 class="mt-8 text-xl font-semibold text-blue-800">Formación académica</h3>
-      <ul class="mt-3 list-disc space-y-1 pl-6">
-        <li>Tecnólogo en Mantenimiento de Automotores, SENA (egresado)</li>
-        <li>Desarrollo de software (en proceso de formación)</li>
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="mx-auto max-w-5xl scroll-mt-20 px-5 py-16">
+      <p class="font-mono text-sm font-semibold text-sky-600">01 / sobre mí</p>
+      <h2 class="mt-1 text-3xl font-bold text-blue-950">Aprender a programar, paso a paso</h2>
+      <div class="mt-6 grid gap-8 md:grid-cols-5">
+        <div class="space-y-4 leading-relaxed md:col-span-3">
+          <p>Soy de <strong>Medellín</strong> y estoy construyendo mi camino como <strong>desarrollador web</strong>. Aprendo con retos pequeños: cada uno tiene un objetivo, una prueba y una bitácora donde anoto qué hice, qué falló y cómo lo corregí.</p>
+          <p>Mi proyecto principal es <strong>Rueda Libre</strong>, un sitio de alquiler de bicicletas en Medellín que fui construyendo por versiones: HTML semántico, tablas y formularios accesibles, CSS con variables, diseño <em>mobile-first</em> y, ahora, comparaciones con Bootstrap y Tailwind.</p>
+          <p>Vengo de la formación como <strong>tecnólogo en Mantenimiento de Automotores (SENA)</strong>. De ahí traje un hábito que me sirve al programar: observar, aislar la falla, corregir y dejarlo documentado.</p>
+        </div>
+
+        <aside class="rounded-xl border border-blue-100 bg-white p-5 shadow-sm md:col-span-2" aria-label="Mi método de trabajo">
+          <h3 class="font-semibold text-blue-900">Mi método para resolver errores</h3>
+          <ol class="mt-3 space-y-3 text-sm">
+            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sky-100 font-mono text-xs font-bold text-sky-700">1</span><span><strong>Observar:</strong> leo el error y miro la consola de DevTools.</span></li>
+            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sky-100 font-mono text-xs font-bold text-sky-700">2</span><span><strong>Aislar:</strong> pruebo una sola cosa a la vez hasta ubicar la línea.</span></li>
+            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sky-100 font-mono text-xs font-bold text-sky-700">3</span><span><strong>Corregir:</strong> hago el cambio más pequeño que lo arregle.</span></li>
+            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sky-100 font-mono text-xs font-bold text-sky-700">4</span><span><strong>Documentar:</strong> lo anoto en la bitácora y hago commit.</span></li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <!-- RUTA DE APRENDIZAJE -->
+    <section id="ruta" class="scroll-mt-20 bg-white py-16">
+      <div class="mx-auto max-w-6xl px-5">
+        <p class="font-mono text-sm font-semibold text-sky-600">02 / ruta de aprendizaje</p>
+        <h2 class="mt-1 text-3xl font-bold text-blue-950">Lo que estoy aprendiendo ahora</h2>
+        <p class="mt-2 max-w-2xl text-slate-600">Cuatro frentes, de lo visual a la lógica y los datos. El avance es mi estimación personal y lo voy actualizando.</p>
+
+        <div class="mt-8 grid gap-6 sm:grid-cols-2">
+
+          <!-- JavaScript -->
+          <article class="rounded-xl border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="flex h-11 w-11 items-center justify-center rounded-lg bg-yellow-300 font-mono text-lg font-bold text-slate-900" aria-hidden="true">JS</span>
+                <h3 class="text-xl font-semibold text-blue-900">JavaScript</h3>
+              </div>
+              <span class="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-800">En curso</span>
+            </div>
+            <p class="mt-4 text-sm leading-relaxed">El lenguaje que le da vida a la página. Estoy aprendiendo la lógica base: variables, tipos de datos, condicionales, bucles y funciones. Después sigo con el DOM y los eventos para hacer menús, formularios y botones que respondan.</p>
+            <ul class="mt-4 flex flex-wrap gap-2 text-xs">
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">Variables</li>
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">Condicionales</li>
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">Bucles</li>
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">Funciones</li>
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">DOM y eventos</li>
+            </ul>
+            <div class="mt-5">
+              <div class="flex justify-between text-xs text-slate-500"><span>Avance</span><span>35 %</span></div>
+              <div class="mt-1 h-2 rounded-full bg-slate-200" role="progressbar" aria-label="Avance en JavaScript" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"><div class="h-2 w-[35%] rounded-full bg-yellow-400"></div></div>
+            </div>
+          </article>
+
+          <!-- Bases de datos -->
+          <article class="rounded-xl border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="flex h-11 w-11 items-center justify-center rounded-lg bg-emerald-500 font-mono text-lg font-bold text-white" aria-hidden="true">DB</span>
+                <h3 class="text-xl font-semibold text-blue-900">Bases de datos</h3>
+              </div>
+              <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">Iniciando</span>
+            </div>
+            <p class="mt-4 text-sm leading-relaxed">Aprendo cómo se guardan y se consultan los datos de una aplicación. Empiezo con el modelo relacional (tablas, filas, claves) y SQL básico. Mi meta práctica es modelar las reservas y la flota de Rueda Libre.</p>
+            <ul class="mt-4 flex flex-wrap gap-2 text-xs">
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">Tablas y claves</li>
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">SELECT</li>
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">INSERT / UPDATE / DELETE</li>
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">JOIN</li>
+            </ul>
+            <div class="mt-5">
+              <div class="flex justify-between text-xs text-slate-500"><span>Avance</span><span>15 %</span></div>
+              <div class="mt-1 h-2 rounded-full bg-slate-200" role="progressbar" aria-label="Avance en bases de datos" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"><div class="h-2 w-[15%] rounded-full bg-emerald-500"></div></div>
+            </div>
+          </article>
+
+          <!-- Python -->
+          <article class="rounded-xl border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-600 font-mono text-lg font-bold text-yellow-300" aria-hidden="true">Py</span>
+                <h3 class="text-xl font-semibold text-blue-900">Python</h3>
+              </div>
+              <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">Iniciando</span>
+            </div>
+            <p class="mt-4 text-sm leading-relaxed">Un lenguaje claro para practicar lógica de programación. Lo uso para resolver ejercicios pequeños y automatizar tareas simples antes de pasar al backend: listas, diccionarios, funciones y lectura de archivos.</p>
+            <ul class="mt-4 flex flex-wrap gap-2 text-xs">
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">Sintaxis básica</li>
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">Listas y diccionarios</li>
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">Funciones</li>
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">Archivos</li>
+            </ul>
+            <div class="mt-5">
+              <div class="flex justify-between text-xs text-slate-500"><span>Avance</span><span>15 %</span></div>
+              <div class="mt-1 h-2 rounded-full bg-slate-200" role="progressbar" aria-label="Avance en Python" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"><div class="h-2 w-[15%] rounded-full bg-blue-600"></div></div>
+            </div>
+          </article>
+
+          <!-- HTML -->
+          <article class="rounded-xl border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="flex h-11 w-11 items-center justify-center rounded-lg bg-orange-500 font-mono text-sm font-bold text-white" aria-hidden="true">&lt;/&gt;</span>
+                <h3 class="text-xl font-semibold text-blue-900">HTML</h3>
+              </div>
+              <span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-800">Base sólida</span>
+            </div>
+            <p class="mt-4 text-sm leading-relaxed">La estructura de toda página web. Practico HTML semántico (header, nav, main, section, article, footer), tablas accesibles, formularios con validación nativa e imágenes con texto alternativo. Lo apliqué completo en Rueda Libre.</p>
+            <ul class="mt-4 flex flex-wrap gap-2 text-xs">
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">Etiquetas semánticas</li>
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">Tablas</li>
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">Formularios</li>
+              <li class="rounded bg-white px-2 py-1 ring-1 ring-slate-200">Accesibilidad</li>
+            </ul>
+            <div class="mt-5">
+              <div class="flex justify-between text-xs text-slate-500"><span>Avance</span><span>75 %</span></div>
+              <div class="mt-1 h-2 rounded-full bg-slate-200" role="progressbar" aria-label="Avance en HTML" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><div class="h-2 w-3/4 rounded-full bg-orange-500"></div></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Herramientas -->
+        <h3 class="mt-12 text-xl font-semibold text-blue-900">Herramientas que uso a diario</h3>
+        <ul class="mt-4 flex flex-wrap gap-3 text-sm font-medium">
+          <li class="rounded-full bg-blue-900 px-4 py-1.5 text-white">VS Code</li>
+          <li class="rounded-full bg-blue-900 px-4 py-1.5 text-white">Live Server</li>
+          <li class="rounded-full bg-blue-900 px-4 py-1.5 text-white">DevTools</li>
+          <li class="rounded-full bg-blue-900 px-4 py-1.5 text-white">Git</li>
+          <li class="rounded-full bg-blue-900 px-4 py-1.5 text-white">GitHub y GitHub Pages</li>
+          <li class="rounded-full bg-sky-500 px-4 py-1.5 text-white">Tailwind CSS</li>
+          <li class="rounded-full bg-sky-500 px-4 py-1.5 text-white">Bootstrap 5</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- BITÁCORA DE RETOS -->
+    <section id="bitacora" class="mx-auto max-w-4xl scroll-mt-20 px-5 py-16">
+      <p class="font-mono text-sm font-semibold text-sky-600">03 / bitácora de retos</p>
+      <h2 class="mt-1 text-3xl font-bold text-blue-950">Cómo fui construyendo Rueda Libre</h2>
+      <p class="mt-2 text-slate-600">Cada reto sumó una habilidad nueva. Así fue el recorrido:</p>
+
+      <ol class="mt-8 space-y-6 border-l-2 border-sky-200 pl-6">
+        <li class="relative">
+          <span class="absolute -left-[33px] top-1 h-4 w-4 rounded-full border-2 border-white bg-sky-500" aria-hidden="true"></span>
+          <h3 class="font-semibold text-blue-900">Estructura base y bitácora</h3>
+          <p class="mt-1 text-sm text-slate-600">Carpetas organizadas (index.html, paginas, img) y un archivo de bitácora para documentar cada paso.</p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-[33px] top-1 h-4 w-4 rounded-full border-2 border-white bg-sky-500" aria-hidden="true"></span>
+          <h3 class="font-semibold text-blue-900">Contenido semántico y tablas de tarifas</h3>
+          <p class="mt-1 text-sm text-slate-600">Títulos jerárquicos, listas, enlaces e imágenes con alt, más tablas accesibles de tarifas y recorridos.</p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-[33px] top-1 h-4 w-4 rounded-full border-2 border-white bg-sky-500" aria-hidden="true"></span>
+          <h3 class="font-semibold text-blue-900">Formulario de reservas y validación</h3>
+          <p class="mt-1 text-sm text-slate-600">Campos con etiquetas, validación nativa (required, minlength, pattern) y pruebas con teclado documentadas en una tabla.</p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-[33px] top-1 h-4 w-4 rounded-full border-2 border-white bg-sky-500" aria-hidden="true"></span>
+          <h3 class="font-semibold text-blue-900">CSS con variables y modelo de caja</h3>
+          <p class="mt-1 text-sm text-slate-600">Paleta de marca, tipografías, escala de espaciado, herencia en DevTools y resolución de conflictos de especificidad sin !important.</p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-[33px] top-1 h-4 w-4 rounded-full border-2 border-white bg-sky-500" aria-hidden="true"></span>
+          <h3 class="font-semibold text-blue-900">Mobile-first y GitHub Pages</h3>
+          <p class="mt-1 text-sm text-slate-600">Diseño que parte del celular y crece con media queries; sitio publicado desde la rama principal.</p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-[33px] top-1 h-4 w-4 rounded-full border-2 border-white bg-sky-500" aria-hidden="true"></span>
+          <h3 class="font-semibold text-blue-900">Bootstrap vs CSS propio</h3>
+          <p class="mt-1 text-sm text-slate-600">Comparé la misma flota hecha a mano y con la grilla y utilidades de Bootstrap 5, midiendo tiempo, líneas de CSS y control perdido.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos" class="scroll-mt-20 bg-white py-16">
+      <div class="mx-auto max-w-6xl px-5">
+        <p class="font-mono text-sm font-semibold text-sky-600">04 / proyectos</p>
+        <h2 class="mt-1 text-3xl font-bold text-blue-950">Proyectos</h2>
+
+        <!-- Proyecto destacado -->
+        <article class="mt-8 overflow-hidden rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-950 to-blue-800 p-8 text-white shadow-lg">
+          <span class="rounded-full bg-sky-400 px-3 py-1 text-xs font-bold text-slate-950">Proyecto principal</span>
+          <h3 class="mt-4 text-2xl font-bold">Rueda Libre</h3>
+          <p class="mt-3 max-w-3xl leading-relaxed text-blue-100">Sitio web de alquiler de bicicletas en Medellín. Incluye página de inicio, tarifas con tablas accesibles y reservas con formulario validado. Está construido por versiones, con diseño <em>mobile-first</em>, paleta de marca y bitácora de cada reto.</p>
+          <ul class="mt-4 flex flex-wrap gap-2 font-mono text-xs">
+            <li class="rounded bg-white/10 px-2 py-1">HTML5</li>
+            <li class="rounded bg-white/10 px-2 py-1">CSS</li>
+            <li class="rounded bg-white/10 px-2 py-1">Bootstrap 5</li>
+            <li class="rounded bg-white/10 px-2 py-1">Git</li>
+            <li class="rounded bg-white/10 px-2 py-1">GitHub Pages</li>
+          </ul>
+          <a href="https://github.com/feliipevera/rueda-libre" target="_blank" rel="noopener"
+             class="mt-6 inline-block rounded-lg bg-white px-5 py-2.5 font-semibold text-blue-950 transition hover:bg-sky-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-900">Ver repositorio en GitHub ↗</a>
+        </article>
+
+        <div class="mt-6 grid gap-6 md:grid-cols-2">
+          <article class="rounded-xl border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:shadow-lg">
+            <h3 class="text-lg font-semibold text-blue-900">Flota: Bootstrap vs CSS propio</h3>
+            <p class="mt-2 text-sm leading-relaxed">Experimento dentro de Rueda Libre: el mismo catálogo de siete modelos hecho solo con la grilla y las utilidades de Bootstrap 5.3, con una bitácora de qué se gana y qué control se pierde.</p>
+            <a href="https://github.com/feliipevera/rueda-libre" target="_blank" rel="noopener" class="mt-3 inline-block font-medium text-blue-700 underline hover:text-blue-900">Ver en el repositorio ↗</a>
+          </article>
+
+          <article class="rounded-xl border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:shadow-lg">
+            <h3 class="text-lg font-semibold text-blue-900">Este portafolio</h3>
+            <p class="mt-2 text-sm leading-relaxed">Página responsive hecha con HTML semántico y Tailwind CSS por CDN: menú móvil con JavaScript, formulario de contacto y navegación accesible por teclado.</p>
+            <a href="https://github.com/feliipevera" target="_blank" rel="noopener" class="mt-3 inline-block font-medium text-blue-700 underline hover:text-blue-900">Ver mi GitHub ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGUIENTES METAS -->
+    <section class="mx-auto max-w-5xl px-5 py-16" aria-labelledby="metas">
+      <p class="font-mono text-sm font-semibold text-sky-600">05 / lo que sigue</p>
+      <h2 id="metas" class="mt-1 text-3xl font-bold text-blue-950">Próximas metas</h2>
+      <ul class="mt-6 grid gap-4 sm:grid-cols-3">
+        <li class="rounded-xl border border-dashed border-sky-300 bg-sky-50 p-5"><p class="font-semibold text-blue-900">Interactividad</p><p class="mt-1 text-sm">Agregar JavaScript a Rueda Libre: validar el formulario y calcular el precio de la reserva.</p></li>
+        <li class="rounded-xl border border-dashed border-sky-300 bg-sky-50 p-5"><p class="font-semibold text-blue-900">Datos reales</p><p class="mt-1 text-sm">Diseñar una base de datos para la flota y las reservas.</p></li>
+        <li class="rounded-xl border border-dashed border-sky-300 bg-sky-50 p-5"><p class="font-semibold text-blue-900">Primer script útil</p><p class="mt-1 text-sm">Crear un programa pequeño en Python que automatice una tarea mía.</p></li>
       </ul>
     </section>
 
-    <section id="habilidades" class="bg-white py-14">
-      <div class="mx-auto max-w-5xl px-5">
-        <h2 class="text-2xl font-bold text-blue-900">Habilidades</h2>
-        <div class="mt-6 grid gap-8 md:grid-cols-2">
-          <div>
-            <h3 class="text-xl font-semibold text-blue-800">Técnicas</h3>
-            <ul class="mt-3 list-disc space-y-1 pl-6">
-              <li>Estructura de páginas con HTML5 semántico</li>
-              <li>Diseño responsive con Tailwind CSS (utility-first)</li>
-              <li>Control de versiones con Git y GitHub</li>
-              <li>Depuración con DevTools del navegador</li>
-              <li>Diagnóstico con escáner OBD-II y lectura de códigos DTC</li>
-              <li>Mantenimiento preventivo y correctivo de sistemas automotrices</li>
-              <li>Interpretación de manuales técnicos y diagramas eléctricos</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold text-blue-800">Blandas</h3>
-            <ul class="mt-3 list-disc space-y-1 pl-6">
-              <li>Pensamiento analítico y resolución de problemas</li>
-              <li>Disciplina y puntualidad</li>
-              <li>Trabajo en equipo y comunicación clara</li>
-              <li>Aprendizaje autónomo y mejora continua</li>
-            </ul>
-          </div>
-        </div>
-
-        <h3 class="mt-10 text-xl font-semibold text-blue-800">Mi ruta de aprendizaje</h3>
-        <ol class="mt-3 list-decimal space-y-1 pl-6">
-          <li>HTML5 semántico y CSS</li>
-          <li>Tailwind CSS y diseño responsive</li>
-          <li>JavaScript y manipulación del DOM</li>
-          <li>Backend y bases de datos</li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="proyectos" class="mx-auto max-w-5xl px-5 py-14">
-      <h2 class="text-2xl font-bold text-blue-900">Proyectos</h2>
-      <div class="mt-6 grid gap-6 md:grid-cols-3">
-        <article class="rounded-lg border border-blue-100 bg-white p-5 shadow-sm">
-          <h3 class="text-lg font-semibold text-blue-800">Portafolio personal</h3>
-          <p class="mt-2 text-sm leading-relaxed">Sitio responsive construido con HTML semántico y Tailwind CSS, versionado en GitHub y publicado en GitHub Pages.</p>
-          <a href="https://github.com/TU-USUARIO/portafolio" target="_blank" rel="noopener" class="mt-3 inline-block font-medium text-blue-700 underline">Ver repositorio</a>
-        </article>
-        <article class="rounded-lg border border-blue-100 bg-white p-5 shadow-sm">
-          <h3 class="text-lg font-semibold text-blue-800">Landing de taller automotriz</h3>
-          <p class="mt-2 text-sm leading-relaxed">Página de servicios para un taller mecánico: diagnóstico, mantenimiento preventivo y formulario de cotización.</p>
-          <a href="https://github.com/TU-USUARIO/taller-automotriz" target="_blank" rel="noopener" class="mt-3 inline-block font-medium text-blue-700 underline">Ver repositorio</a>
-        </article>
-        <article class="rounded-lg border border-blue-100 bg-white p-5 shadow-sm">
-          <h3 class="text-lg font-semibold text-blue-800">Guía de códigos DTC</h3>
-          <p class="mt-2 text-sm leading-relaxed">Consulta rápida de códigos de falla OBD-II organizados en tablas por sistema: motor, transmisión y emisiones.</p>
-          <a href="https://github.com/TU-USUARIO/guia-dtc" target="_blank" rel="noopener" class="mt-3 inline-block font-medium text-blue-700 underline">Ver repositorio</a>
-        </article>
-      </div>
-    </section>
-
-    <section id="horario" class="bg-white py-14">
+    <!-- CONTACTO -->
+    <section id="contacto" class="scroll-mt-20 bg-blue-950 py-16 text-white">
       <div class="mx-auto max-w-3xl px-5">
-        <h2 class="text-2xl font-bold text-blue-900">Mi horario de estudio</h2>
-        <div class="mt-6 overflow-x-auto">
-          <table class="w-full border-collapse text-left">
-            <caption class="mb-2 text-left text-sm text-slate-600">Horario semanal de formación, de lunes a viernes.</caption>
-            <thead class="bg-blue-900 text-white">
-              <tr>
-                <th scope="col" class="px-4 py-2">Día</th>
-                <th scope="col" class="px-4 py-2">Horario</th>
-                <th scope="col" class="px-4 py-2">Horas</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-blue-100">
-              <tr><td class="px-4 py-2">Lunes</td><td class="px-4 py-2">6:00 a.m. – 2:00 p.m.</td><td class="px-4 py-2">8</td></tr>
-              <tr><td class="px-4 py-2">Martes</td><td class="px-4 py-2">6:00 a.m. – 2:00 p.m.</td><td class="px-4 py-2">8</td></tr>
-              <tr><td class="px-4 py-2">Miércoles</td><td class="px-4 py-2">6:00 a.m. – 2:00 p.m.</td><td class="px-4 py-2">8</td></tr>
-              <tr><td class="px-4 py-2">Jueves</td><td class="px-4 py-2">6:00 a.m. – 2:00 p.m.</td><td class="px-4 py-2">8</td></tr>
-              <tr><td class="px-4 py-2">Viernes</td><td class="px-4 py-2">6:00 a.m. – 2:00 p.m.</td><td class="px-4 py-2">8</td></tr>
-            </tbody>
-          </table>
-        </div>
+        <p class="font-mono text-sm font-semibold text-sky-300">06 / contacto</p>
+        <h2 class="mt-1 text-3xl font-bold">Hablemos</h2>
+        <p class="mt-3 text-blue-100">Escríbeme a <a class="font-medium text-sky-300 underline" href="mailto:felipe-370@hotmail.com">felipe-370@hotmail.com</a> o mira mi trabajo en <a class="font-medium text-sky-300 underline" href="https://github.com/feliipevera" target="_blank" rel="noopener">GitHub</a>.</p>
+
+        <form id="form-contacto" class="mt-8 space-y-4 rounded-xl bg-white p-6 text-slate-800 shadow-xl" novalidate>
+          <div>
+            <label for="nombre" class="block text-sm font-medium">Nombre</label>
+            <input id="nombre" name="nombre" type="text" required autocomplete="name"
+                   class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
+          </div>
+          <div>
+            <label for="correo" class="block text-sm font-medium">Correo electrónico</label>
+            <input id="correo" name="correo" type="email" required autocomplete="email"
+                   class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
+          </div>
+          <div>
+            <label for="mensaje" class="block text-sm font-medium">Mensaje <span class="font-normal text-slate-500">(mínimo 10 caracteres)</span></label>
+            <textarea id="mensaje" name="mensaje" rows="4" required minlength="10"
+                      class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"></textarea>
+          </div>
+          <p id="estado-form" role="status" class="min-h-[1.25rem] text-sm font-medium text-red-600"></p>
+          <button type="submit" class="w-full rounded-lg bg-blue-700 px-6 py-3 font-semibold text-white transition hover:bg-blue-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 sm:w-auto">Enviar mensaje</button>
+        </form>
       </div>
-    </section>
-
-    <section id="contacto" class="mx-auto max-w-3xl px-5 py-14">
-      <h2 class="text-2xl font-bold text-blue-900">Contacto</h2>
-      <p class="mt-3">Escríbeme a <a class="font-medium text-blue-700 underline" href="mailto:felipe-370@hotmail.com">felipe-370@hotmail.com</a>, visita mi <a class="font-medium text-blue-700 underline" href="https://github.com/TU-USUARIO" target="_blank" rel="noopener">perfil de GitHub</a> o mi <a class="font-medium text-blue-700 underline" href="https://www.linkedin.com/in/TU-USUARIO" target="_blank" rel="noopener">LinkedIn</a>.</p>
-
-      <form id="form-contacto" class="mt-6 space-y-4">
-        <div>
-          <label for="nombre" class="block text-sm font-medium">Nombre</label>
-          <input id="nombre" name="nombre" type="text" required class="mt-1 w-full rounded border border-slate-300 px-3 py-2 focus:border-blue-600 focus:outline focus:outline-2 focus:outline-blue-300">
-        </div>
-        <div>
-          <label for="correo" class="block text-sm font-medium">Correo electrónico</label>
-          <input id="correo" name="correo" type="email" required class="mt-1 w-full rounded border border-slate-300 px-3 py-2 focus:border-blue-600 focus:outline focus:outline-2 focus:outline-blue-300">
-        </div>
-        <div>
-          <label for="mensaje" class="block text-sm font-medium">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" rows="4" required minlength="10" class="mt-1 w-full rounded border border-slate-300 px-3 py-2 focus:border-blue-600 focus:outline focus:outline-2 focus:outline-blue-300"></textarea>
-        </div>
-        <button type="submit" class="rounded bg-blue-700 px-6 py-2.5 font-semibold text-white hover:bg-blue-800 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-blue-400">Enviar mensaje</button>
-      </form>
     </section>
   </main>
 
-  <footer class="bg-blue-950 py-6 text-center text-sm text-blue-200">
-    <p>&copy; 2026 Duban Felipe Sarmiento Vera · Medellín, Colombia</p>
+  <!-- PIE DE PÁGINA -->
+  <footer class="bg-slate-950 py-6 text-center text-sm text-slate-400">
+    <p>&copy; <span id="anio">2026</span> Duban Felipe Sarmiento Vera · Medellín, Colombia</p>
+    <p class="mt-1"><a class="text-sky-300 underline" href="#inicio">Volver arriba ↑</a></p>
   </footer>
 
   <script>
+    // 1. Año automático en el pie de página
+    document.getElementById('anio').textContent = new Date().getFullYear();
+
+    // 2. Menú móvil: abre/cierra y avisa el estado a lectores de pantalla
+    var btn = document.getElementById('btn-menu');
+    var menu = document.getElementById('menu');
+    btn.addEventListener('click', function () {
+      var abierto = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', abierto);
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // 3. Formulario: valida y abre el correo con los datos
     document.getElementById('form-contacto').addEventListener('submit', function (e) {
       e.preventDefault();
       var f = e.target;
+      var estado = document.getElementById('estado-form');
+      if (!f.checkValidity()) {
+        estado.textContent = 'Revisa los campos: nombre, un correo válido y un mensaje de al menos 10 caracteres.';
+        return;
+      }
+      estado.textContent = '';
       var asunto = encodeURIComponent('Contacto desde el portafolio - ' + f.nombre.value);
       var cuerpo = encodeURIComponent(f.mensaje.value + '\n\nDe: ' + f.nombre.value + ' (' + f.correo.value + ')');
       window.location.href = 'mailto:felipe-370@hotmail.com?subject=' + asunto + '&body=' + cuerpo;
